@@ -1,0 +1,12 @@
+.container1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50%; /* Asegura que el contenedor tenga una altura definida */
+  }
+  
+  .estilo {
+    margin: 20px 0; /* Añade un margen superior e inferior entre los párrafos */
+  }
+  

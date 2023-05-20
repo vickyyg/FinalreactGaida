@@ -1,0 +1,37 @@
+.shadow {
+    background-color: #3a752f;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    position: relative;
+    transition: box-shadow 0.3s;
+  
+  }
+  
+  .shadow:hover {
+    box-shadow: 0 0 10px rgba(36, 30, 30, 0.3);
+  }
+
+  .item-count-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh; 
+    padding-left: 5px;
+    
+  }
+
+ 
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
