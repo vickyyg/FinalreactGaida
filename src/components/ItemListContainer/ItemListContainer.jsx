@@ -29,16 +29,6 @@ const ItemListContainer = ({greeting}) => {
         .catch(error => console.log(error))
     }, [idCategoria])
 
-  /*    useEffect(() => {
-
-        const funcionProductos = idCategoria ? getCategorias : obtenerProductos;
-
-        funcionProductos(idCategoria)
-        .then(res => setProductos(res))
-        .catch(error => console.log(error))
-     }, [idCategoria])
- */
-
     return(
         <>
             <h2 style={{ textAlign: "center"}}>{greeting}</h2>

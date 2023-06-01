@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, createContext } from "react";
 
 
-export const CarritoContext = createContext();
+export const CarritoContext = createContext({carrito:[]});
 
 
 
@@ -19,17 +19,19 @@ export const CarritoProvider = ({children}) => {
     const agregarProducto = (item, cantidad) => {
         console.log(yaEstaEnCarrito(item.id))
         if(!yaEstaEnCarrito(item.id)) {
+            
             setCarrito(prev => [...prev, {item, cantidad}]);
           
         } else {
-            setCarrito(carrito => {
+            console.log("Producto ya agregado")
+           /*  setCarrito(carrito => {
                 return carrito.map(element => {
                     if(element.item.id === item.id){
                         element.cantidad += cantidad
                     }
                     return element
                 })
-            })
+            }) */
         }
     }
     const calcTotal = ( ) => {
@@ -42,8 +44,8 @@ export const CarritoProvider = ({children}) => {
  
 
     const eliminarProducto = (id)  => {
-        const carritoActualizado = carrito.filter( prod => prod.id !== id);
-        setCarrito(carritoActualizado);
+        const setCarrito = carrito.filter( prod => prod.item.id !== id);
+    
     }
 
    
@@ -55,10 +57,11 @@ export const CarritoProvider = ({children}) => {
 
 
     const yaEstaEnCarrito = (id) => {
-        return carrito.some(prod => prod.item.id === id);
+        return carrito.some(prod => prod.id === id);
     }
     const carritoCounter = () => carrito.length
-
+    
+    
 
     return (
         <CarritoContext.Provider value={{carrito, agregarProducto, eliminarProducto, vaciarCarrito, calcTotal, carritoCounter}} >

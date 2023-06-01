@@ -14,7 +14,7 @@ const ItemDetail = ({id, nombre, precio, img, stock, descripcion}) => {
 
   const contadorCantidad = (cantidad) => {
     setAgregarCantidad(cantidad);
-//console.log("Productos agregados:" + cantidad);
+
 
     const item = {id: id, nombre, precio};
     agregarProducto( item, cantidad);
@@ -30,7 +30,8 @@ const ItemDetail = ({id, nombre, precio, img, stock, descripcion}) => {
         
         {
           agregarCantidad > 0 ? (<Link  className='terminarCompra' to="/cart"> Terminar compra </Link>) : (<ItemCount inicial={1} stock={stock} funcionAgregar={contadorCantidad}/>)
-        }
+        } 
+       <Link className='producto' to='/'> Ir a tienda</Link>
     </div>
   )
 }

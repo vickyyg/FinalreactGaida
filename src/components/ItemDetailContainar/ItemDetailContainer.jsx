@@ -27,11 +27,7 @@ const ItemDetailContainer = () => {
 
     }, [idItem])
 
-   /*  useEffect( () => {
-        obtenerUnProducto(idItem)
-        .then(res => setProducto(res))
-    }, [idItem])
- */
+ 
   return (
     <div>
         <ItemDetail {...producto}/>
