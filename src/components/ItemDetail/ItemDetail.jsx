@@ -34,6 +34,6 @@ const ItemDetail = ({id, nombre, precio, img, stock, descripcion}) => {
        <Link className='producto' to='/'> Ir a tienda</Link>
     </div>
   )
-}
-
-export default ItemDetail
+      }
+      
+export default ItemDetail;

@@ -7,56 +7,36 @@ import { CircleLoader } from 'react-spinners';
 import './Cart.css';
 
 const Cart = () => {
-  const { carrito, vaciarCarrito, eliminarProducto } = useContext(CarritoContext);
-  const [isLoading, setIsLoading] = useState(true);
+  const { carrito, total, totalCantidad, vaciarCarrito, eliminarProducto} = useContext(CarritoContext);
 
-  const totalCantidad = carrito.reduce((total, producto) => total + producto.cantidad, 0);
-  const total = carrito.reduce((total, producto) => total + (producto.item.precio * producto.cantidad), 0);
-
-  const handleEliminarProducto = (id) => {
-    eliminarProducto(id);
-  };
-
-  useEffect(() => {
-    const delay = setTimeout(() => {
-      setIsLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(delay);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className='container'>
-        <div className="spinner-container">
-          <CircleLoader color="#3a752f" size={25} />
-          <p>Loading...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (totalCantidad === 0) {
+  if (totalCantidad() === 0) {
     return (
       <>
         <h2 className='estilo'>No hay productos en el carrito</h2>
         <Link className='producto' to='/'>Seguir comprando</Link>
+        
+        <h3>Total: ${total()}</h3>
+       
       </>
     );
-  }
-
+    }
+  
+  
   return (
-    <div className='container'>
-      {carrito.map(producto => (
-         <CartItem key={producto.id} {...producto} id={producto.id} onEliminar={handleEliminarProducto} />
-      ))}
-      <h3>Total: ${total}</h3>
+    <div  className='container'>
+      {carrito.map((producto) => (
+      <CartItem key={producto.id} {...producto} onEliminar={eliminarProducto} />
+  ))}
+     
+      {/* <button onClick={() => deleteProducto()}>Eliminar</button> */}
       <button className='finalizar' onClick={() => vaciarCarrito()}>Vaciar Carrito</button>
       <Link className='finalizar2' to='/formulario'>Finalizar Compra</Link>
       <Link className='producto' to='/'>Seguir comprando</Link>
+      
     </div>
   );
-};
+      }
+
 
 export default Cart;
 
