@@ -13,7 +13,7 @@ export const CarritoProvider = ({children}) => {
     const [carrito, setCarrito] = useState([]);
 
  
-    console.log(carrito);
+    //console.log(carrito);
 
   
 
@@ -24,15 +24,15 @@ export const CarritoProvider = ({children}) => {
             setCarrito(prev => [...prev, {item, cantidad}]);
           
         } else {
-            console.log("Producto ya agregado")
-           /*  setCarrito(carrito => {
+            //console.log("Producto ya agregado")
+             setCarrito(carrito => {
                 return carrito.map(element => {
                     if(element.item.id === item.id){
                         element.cantidad += cantidad
                     }
                     return element
                 })
-            }) */
+            }) 
         }
     }
     const calcTotal = ( ) => {
@@ -44,11 +44,11 @@ export const CarritoProvider = ({children}) => {
     }
  
 
-    const deleteProducto = (id)  => {
-        const productoEliminado= carrito.filter( prod => prod.item.id !== id);
-    setCarrito([...productoEliminado]);
-    
-   
+    const deleteProduct = (id) => {
+        const productoEliminado = carrito.filter((prod) => prod.item.id !== id);
+        setCarrito(productoEliminado);
+      
+      
     }
     
 
@@ -66,14 +66,14 @@ export const CarritoProvider = ({children}) => {
 
 
     const yaEstaEnCarrito = (id) => {
-        return carrito.some(prod => prod.id === id);
-    }
+        return carrito.some((prod) => prod.item.id === id);
+    };
     const carritoCounter = () => carrito.length
     
     
 
     return (
-        <CarritoContext.Provider value={{carrito, agregarProducto,totalCantidad,total, deleteProducto, vaciarCarrito, calcTotal, carritoCounter}} >
+        <CarritoContext.Provider value={{carrito, agregarProducto,totalCantidad,total, deleteProduct, vaciarCarrito, calcTotal, carritoCounter}} >
             {children}
         </CarritoContext.Provider>
     )

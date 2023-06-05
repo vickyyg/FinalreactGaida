@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
         .then(res => {
           const data = res.data();
           const nuevoProducto = {id: res.id, ...data}
-          console.log(nuevoProducto)
+          //console.log(nuevoProducto)
           setProducto(nuevoProducto);
 
         })
