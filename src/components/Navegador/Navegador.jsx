@@ -2,7 +2,7 @@ import React from "react"
 import CartWidget from "../CartWidget/CartWidget"
 import './Navegador.css'
 import { NavLink, Link } from "react-router-dom";
-//import logo from './public/img/logo'
+
 
 
 const Navegador = () => {
@@ -11,8 +11,7 @@ const Navegador = () => {
 
     <header>
       <Link to={"/"}>
-     {/*  <img className="imgGrow" src={logo} alt="Green GrowShop" /> */}
-     <img src="./img/GrowShop.png" style={{width: "170px"}} alt=""/>
+      <img src="./img/GrowShop.png" style={{width: "170px"}} alt=""/>
       </Link>
       <ul>
         <li>

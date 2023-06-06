@@ -20,19 +20,16 @@ const ItemDetailContainer = () => {
           const nuevoProducto = {id: res.id, ...data}
           //console.log(nuevoProducto)
           setProducto(nuevoProducto);
-
         })
 
         .catch(error => console.log(error))
+      }, [idItem])
 
-    }, [idItem])
-
- 
-  return (
-    <div>
+    return (
+      <div>
         <ItemDetail {...producto}/>
-    </div>
-  )
-}
+      </div>
+    )
+  }
 
 export default ItemDetailContainer

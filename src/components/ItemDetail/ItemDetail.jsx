@@ -6,7 +6,7 @@ import { CarritoContext } from '../../Context/CarritoContext'
 import { useContext } from 'react'
 
 
-const ItemDetail = ({id, nombre, precio, img, stock, descripcion}) => {
+  const ItemDetail = ({id, nombre, precio, img, stock, descripcion}) => {
 
   const [agregarCantidad, setAgregarCantidad] = useState(0);
 
@@ -14,7 +14,6 @@ const ItemDetail = ({id, nombre, precio, img, stock, descripcion}) => {
 
   const contadorCantidad = (cantidad) => {
     setAgregarCantidad(cantidad);
-
 
     const item = {id: id, nombre, precio};
     agregarProducto( item, cantidad);
@@ -31,9 +30,9 @@ const ItemDetail = ({id, nombre, precio, img, stock, descripcion}) => {
         {
           agregarCantidad > 0 ? (<Link  className='terminarCompra' to="/cart"> Terminar compra </Link>) : (<ItemCount inicial={1} stock={stock} funcionAgregar={contadorCantidad}/>)
         } 
-       <Link className='producto' to='/'> Ir a tienda</Link>
+      <Link className='producto' to='/'> Ir a tienda</Link>
     </div>
-  )
-      }
-      
+    )
+  }
+
 export default ItemDetail;

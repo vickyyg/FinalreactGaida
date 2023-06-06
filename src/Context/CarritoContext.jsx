@@ -1,31 +1,21 @@
 import React from 'react';
 import { useState, createContext } from "react";
 
+    export const CarritoContext = createContext({carrito:[]});
 
-
-export const CarritoContext = createContext({carrito:[]});
-
-
-
-export const CarritoProvider = ({children}) => {
-    
+    export const CarritoProvider = ({children}) => {
 
     const [carrito, setCarrito] = useState([]);
 
- 
-    //console.log(carrito);
-
-  
 
     const agregarProducto = (item, cantidad) => {
         console.log(yaEstaEnCarrito(item.id))
         if(!yaEstaEnCarrito(item.id)) {
             
             setCarrito(prev => [...prev, {item, cantidad}]);
-          
         } else {
-            //console.log("Producto ya agregado")
-             setCarrito(carrito => {
+
+            setCarrito(carrito => {
                 return carrito.map(element => {
                     if(element.item.id === item.id){
                         element.cantidad += cantidad
@@ -42,13 +32,11 @@ export const CarritoProvider = ({children}) => {
             )
         return total
     }
- 
+
 
     const deleteProduct = (id) => {
         const productoEliminado = carrito.filter((prod) => prod.item.id !== id);
         setCarrito(productoEliminado);
-      
-      
     }
     
 
