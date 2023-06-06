@@ -17,5 +17,7 @@ Pagina para comprar productos de jardineria, podes ver las variedades para cuida
 - ✔️[nodeJs] 
 - ✔️[Firebase]
 - ✔️[Canva] 
+- ✔️[Git] 
+- ✔️[Vite] 
 
 ## Espero que les haya gustado 😊
